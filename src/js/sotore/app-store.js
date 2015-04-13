@@ -29,8 +29,9 @@
   _cartItems = [];
 
   _removeItem = function(index) {
+    console.log(_cartItems);
     _cartItems[index].inCart = false;
-    return _cartItems[index].slice(index, 1);
+    return _cartItems.splice(index, 1);
   };
 
   _increaseItem = function(index) {
@@ -60,6 +61,7 @@
   };
 
   EventEmitter.prototype.emitChange = function() {
+    console.log(CHANGE_EVENT);
     return this.emit(CHANGE_EVENT);
   };
 
@@ -79,7 +81,7 @@
     return _catalog;
   };
 
-  EventEmitter.prototype.dispatcherIndex = AppDispatcher.register(function(payload) {
+  EventEmitter.prototype.dispatcherIndex = AppDispatcher.prototype.register(function(payload) {
     var action;
     action = payload.action;
     switch (action.actionType) {
@@ -87,6 +89,7 @@
         _addItem(payload.action.item);
         break;
       case AppConstants.REMOVE_ITEM:
+        console.log(payload.action);
         _removeItem(payload.action.index);
         break;
       case AppConstants.INCREASE_ITEM:

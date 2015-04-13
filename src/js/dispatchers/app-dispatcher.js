@@ -37,13 +37,14 @@
   };
 
   Dispatcher.prototype.handleViewAction = function(action) {
+    console.log(action);
     return this.dispatch({
       source: "VIEW_ACTION",
       action: action
     });
   };
 
-  AppDispatcher = new Dispatcher;
+  AppDispatcher = Dispatcher;
 
   module.exports = AppDispatcher;
 

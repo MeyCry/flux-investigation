@@ -3,22 +3,22 @@ AppDispatcher = require("../dispatchers/app-dispatcher.js")
 
 AppActions = {
   addItem: (item) ->
-    AppDispatcher.handleViewAction
+    AppDispatcher::handleViewAction
       actionType: AppConstants.ADD_ITEM
       item: item
 
   removeItem: (index) ->
-    AppDispatcher.handleViewAction
+    AppDispatcher::handleViewAction
       actionType: AppConstants.REMOVE_ITEM
       index: index
 
   decreaseItem: (index) ->
-    AppDispatcher.handleViewAction
+    AppDispatcher::handleViewAction
       actionType: AppConstants.DECREASE_ITEM
       index: index
 
   increaseItem: (index) ->
-    AppDispatcher.handleViewAction
+    AppDispatcher::handleViewAction
       actionType: AppConstants.INCREASE_ITEM
       index: index
 }

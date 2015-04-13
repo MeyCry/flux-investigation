@@ -8,25 +8,25 @@
 
   AppActions = {
     addItem: function(item) {
-      return AppDispatcher.handleViewAction({
+      return AppDispatcher.prototype.handleViewAction({
         actionType: AppConstants.ADD_ITEM,
         item: item
       });
     },
     removeItem: function(index) {
-      return AppDispatcher.handleViewAction({
+      return AppDispatcher.prototype.handleViewAction({
         actionType: AppConstants.REMOVE_ITEM,
         index: index
       });
     },
     decreaseItem: function(index) {
-      return AppDispatcher.handleViewAction({
+      return AppDispatcher.prototype.handleViewAction({
         actionType: AppConstants.DECREASE_ITEM,
         index: index
       });
     },
     increaseItem: function(index) {
-      return AppDispatcher.handleViewAction({
+      return AppDispatcher.prototype.handleViewAction({
         actionType: AppConstants.INCREASE_ITEM,
         index: index
       });

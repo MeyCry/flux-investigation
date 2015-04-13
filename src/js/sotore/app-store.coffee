@@ -14,8 +14,10 @@ _catalog = [
 _cartItems = []
 
 _removeItem = (index) ->
-  _cartItems[index].inCart = no
-  _cartItems[index].slice(index, 1)
+  console.log _cartItems
+  _cartItems[index].inCart = false;
+  _cartItems.splice(index, 1);
+
 
 _increaseItem = (index) ->
   _cartItems[index].qty++
@@ -39,6 +41,7 @@ _addItem = (item) ->
 
 
 EventEmitter::emitChange = ->
+  console.log CHANGE_EVENT
   @emit(CHANGE_EVENT)
 
 EventEmitter::addChangeListener = (callback) ->
@@ -53,7 +56,7 @@ EventEmitter::getCart = ->
 EventEmitter::getCatalog = ->
   _catalog
 
-EventEmitter::dispatcherIndex = AppDispatcher.register (payload) ->
+EventEmitter::dispatcherIndex = AppDispatcher::register (payload) ->
   action = payload.action # from handleViewAction
 
   switch action.actionType
@@ -61,6 +64,7 @@ EventEmitter::dispatcherIndex = AppDispatcher.register (payload) ->
       _addItem(payload.action.item)
 
     when AppConstants.REMOVE_ITEM
+      console.log payload.action
       _removeItem(payload.action.index)
 
     when AppConstants.INCREASE_ITEM
@@ -72,6 +76,7 @@ EventEmitter::dispatcherIndex = AppDispatcher.register (payload) ->
   EventEmitter::emitChange()
 
   return true
+
 
 AppStore = EventEmitter
 

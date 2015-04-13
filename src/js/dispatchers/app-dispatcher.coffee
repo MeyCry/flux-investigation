@@ -31,10 +31,11 @@ Dispatcher::dispatch = (payload) ->
 # handlers:
 
 Dispatcher::handleViewAction = (action) ->
+  console.log action
   @dispatch
     source: "VIEW_ACTION"
     action: action
 
-AppDispatcher = new Dispatcher
+AppDispatcher = Dispatcher
 
 module.exports = AppDispatcher
