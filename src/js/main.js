@@ -6,6 +6,6 @@
 
   React = require("react");
 
-  React.render(<APP/>, document.getElementById("main"));
+  React.render(<APP />, document.getElementById("main"));
 
 }).call(this);

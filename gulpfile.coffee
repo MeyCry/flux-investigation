@@ -1,12 +1,12 @@
 gulp = require("gulp")
-
+reactify = require("reactify")
 browserify = require("gulp-browserify")
 concat = require("gulp-concat")
 
 gulp.task "browserify", ->
   gulp.src "src/js/main.js"
     .pipe browserify
-      transform: "reactify"
+      transform: reactify
     .pipe concat("main.js")
     .pipe gulp.dest "dist/js"
 
